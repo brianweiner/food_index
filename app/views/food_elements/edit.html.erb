@@ -1,14 +1,14 @@
-<%= form_for @ingredient do |f| %>
+<%= form_for @food_element do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= hidden_field_tag :connection_names %>
-  <%= autocomplete_field_tag 'connection_name_field', '', autocomplete_ingredient_name_ingredients_path , :size => 75 %>
+  <%= autocomplete_field_tag 'connection_name_field', '', autocomplete_food_element_name_food_elements_path , :size => 75 %>
   <%= select_tag "connection_type" , options_for_select(connection_type_list.collect { |c| [c,c] }) %>
   <a href="#" onclick="addConnection()">Add Connection</a>
   <h3>Connections</h3>
   <ul class="connection-list">
-    <% @ingredient.connections.each do |ingredient| %>
-      <li><%= ingredient.name %> : <%= ingredient.connection_strength_to(@ingredient).connection_type %></li>
+    <% @food_element.connections.each do |food_element| %>
+      <li><%= food_element.name %> : <%= food_element.connection_strength_to(@food_element).connection_type %></li>
     <% end %>
 
   </ul>

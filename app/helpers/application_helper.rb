@@ -4,15 +4,15 @@ module ApplicationHelper
     ['Moderate', 'Strong', 'Ideal']
   end
 
-  def ingredient_connection_link(primary_ingredient, secondary_ingredient, connections)
-    connection = connections.where(secondary_ingredient_id: secondary_ingredient.id, primary_ingredient_id: primary_ingredient.id).first
+  def food_element_connection_link(primary_food_element, secondary_food_element, connections)
+    connection = connections.where(secondary_food_element_id: secondary_food_element.id, primary_food_element_id: primary_food_element.id).first
     case connection.connection_type.downcase
     when "ideal"
-      string = link_to "<strong>#{secondary_ingredient.name.upcase}</strong>".html_safe, ingredient_path(secondary_ingredient)
+      string = link_to "<strong>#{secondary_food_element.name.upcase}</strong>".html_safe, food_element_path(secondary_food_element)
     when "strong"
-      string = link_to "<strong>#{secondary_ingredient.name}</strong>".html_safe, ingredient_path(secondary_ingredient)
+      string = link_to "<strong>#{secondary_food_element.name}</strong>".html_safe, food_element_path(secondary_food_element)
     when "moderate"
-      string = link_to secondary_ingredient.name, ingredient_path(secondary_ingredient)
+      string = link_to secondary_food_element.name, food_element_path(secondary_food_element)
     else
       ""
     end

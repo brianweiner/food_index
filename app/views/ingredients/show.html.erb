@@ -1,9 +1,0 @@
-<h1><%= @ingredient.name %></h1>
-<%= link_to "Edit", edit_ingredient_path(@ingredient) %>
-
-<h3>Connections</h3>
-<ul>
-<%- @ingredient.connections.each do |ingredient| %>
-  <li><%= ingredient_connection_link(@ingredient, ingredient, @connections) %></li>
-<% end %>
-</ul>

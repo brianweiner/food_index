@@ -1,6 +1,6 @@
 FactoryGirl.define do
 
-  factory :ingredient do
+  factory :food_element do
     name "name"
   end
 

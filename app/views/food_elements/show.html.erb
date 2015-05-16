@@ -1,0 +1,15 @@
+<h1><%= @food_element.name %></h1>
+<%= link_to "Edit", edit_food_element_path(@food_element) %>
+
+<h3>Connections</h3>
+<ul>
+<%- @food_element.connections.each do |food_element| %>
+  <li><%= food_element_connection_link(@food_element, food_element, @connections) %></li>
+<% end %>
+</ul>
+<h3>Other foods that reference <%= @food_element.name %></h3>
+<ul>
+<%- @food_element.reverse_food_element_connections.each do |food_element| %>
+  <li><%= food_element.primary_food_element.name %></li>
+<% end %>
+</ul>
