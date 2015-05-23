@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="small-1 column">
+    <%= f.label :name , class: 'right inline' %>
+  </div>
+  <div class="small-5 column">
+    <%= f.text_field :name %>
+  </div>
+  <div class="small-1 column">
+    <%= f.label :type, class: 'right inline' %>
+  </div>
+  <div class="small-5 column">
+    <%= f.select :type, options_for_select(food_element_type_list.collect { |c| [c,c] }) %>
+  </div>
+</div>

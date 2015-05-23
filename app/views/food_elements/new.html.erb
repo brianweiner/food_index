@@ -1,31 +1,13 @@
-<%= form_for @food_element do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= hidden_field_tag :connection_names %>
-  <%= autocomplete_field_tag 'connection_name_field', '', autocomplete_food_element_name_food_elements_path , :size => 75 %>
-  <%= select_tag "connection_type" , options_for_select(connection_type_list.collect { |c| [c,c] }) %>
-  <a href="#" onclick="addConnection()">Add Connection</a>
-  <h3>Connections</h3>
-  <ul class="connection-list">
-  </ul>
+<div class="row">
+  <span class="small-12 column">
+    <h1>Create new food element</h1>
+  </span>
+  <%= form_for @food_element.becomes(FoodElement) do |f| %>
 
+    <%= render 'food_element_form_fields', f: f %>
 
-  <%= f.submit %>
-<% end %>
-
-<script>
-  $(document).ready(function(){
-    addConnection = function(){
-      var existing = $("#connection_names").val();
-      if(existing != ""){
-        existing += ","
-      }
-      var connection_name = $("#connection_name_field").val();
-      var connection_type = $("#connection_type").val();
-      $("#connection_names").val(existing + connection_name +":"+connection_type);
-      $("ul.connection-list").append("<li>"+connection_name+" : " + connection_type +"</li>");
-      $("#connection_name_field").val("");
-    }
-  });
-  
-</script>
+    <div class="row">
+      <%= f.submit 'Create Food Element', class: "button" %>
+    </div>
+  <% end %>
+</div>

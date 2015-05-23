@@ -21,6 +21,7 @@ RSpec.feature "FoodElement CRUD", :type => :feature do
     click_button "Create Food Element"
 
     expect(page).to have_text("Element was successfully created.")
+    expect(response).to redirect_to :edit
   end
 
 end

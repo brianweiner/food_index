@@ -1,0 +1,3 @@
+class Cuisine < FoodElement
+
+end

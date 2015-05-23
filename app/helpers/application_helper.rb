@@ -3,6 +3,10 @@ module ApplicationHelper
   def connection_type_list
     ['Moderate', 'Strong', 'Ideal']
   end
+  
+  def food_element_type_list
+    ['Vegetable', 'Cuisine', 'Poultry', 'Beef', 'Pork', 'Spice', 'Herb', 'Fish', 'Grain', 'Fruit', 'Legume', 'Aromatic', 'Mushroom']
+  end
 
   def food_element_connection_link(primary_food_element, secondary_food_element, connections)
     connection = connections.where(secondary_food_element_id: secondary_food_element.id, primary_food_element_id: primary_food_element.id).first

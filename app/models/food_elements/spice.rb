@@ -1,0 +1,3 @@
+class Spice < FoodElement
+
+end
