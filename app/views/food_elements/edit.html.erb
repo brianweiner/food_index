@@ -9,4 +9,20 @@
       <%= f.submit 'Update Food Element', class: 'button' %>
     </div>
   <% end %>
+  <span class="small-12 column">
+    <h1>Edit <%= @food_element.name %> Connections</h1>
+  </span>
+  <span class="small-12 column">
+    <ul id="connection-list">
+      <%= render partial: "food_element_connections/edit_connection", collection: @connections, as: :food_element_connection  %>
+    </ul>
+  </span>
+  <span class="small-12 column">
+    <h1>Add a new connection</h1> 
+    <span id="add-connection-form"> 
+      <%= render 'add_connection', primary_food_element: @food_element %>
+    </span>
+  </span>
+
+
 </div>

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     get :autocomplete_food_element_name, :on => :collection
   end
 
+  resources :food_element_connections
+
   FoodElement.subclasses.each do |klass|
     k = klass.name.pluralize.underscore.to_sym
     resources k, :controller => 'food_elements'

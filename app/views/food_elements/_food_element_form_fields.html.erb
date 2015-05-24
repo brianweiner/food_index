@@ -9,6 +9,6 @@
     <%= f.label :type, class: 'right inline' %>
   </div>
   <div class="small-5 column">
-    <%= f.select :type, options_for_select(food_element_type_list.collect { |c| [c,c] }) %>
+    <%= f.select :type, options_for_select(food_element_type_list.collect { |c| [c,c] }, f.object.type) %>
   </div>
 </div>

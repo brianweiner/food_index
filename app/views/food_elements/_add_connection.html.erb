@@ -1,23 +1,24 @@
-<%= form_for FoodElement.new,  :remote => true do |f| %>
+<%= form_for FoodElementConnection.new,  :remote => true do |f| %>
+    <%= hidden_field_tag 'food_element_connection[primary_food_element_id]', primary_food_element.id %>
     <span class="small-1 column">
-      <label for="connection_name" class="inline right">Connection:</label>
+      <label for="food_element[name]" class="inline right">Name:</label>
     </span>
     <span class="small-3 column">
-      <%= autocomplete_field_tag 'connection_name_field', '', autocomplete_food_element_name_food_elements_path , :size => 75 %>
+      <%= autocomplete_field_tag 'food_element[name]', '', autocomplete_food_element_name_food_elements_path , :size => 75 %>
     </span>
     <span class="small-1 column">
-      <label for="connection_strength" class="inline right">Strength:</label>
+      <label for="food_element[type]" class="inline right">Type:</label>
     </span>
     <span class="small-2 column">
-      <%= select_tag "connection_type" , options_for_select(connection_type_list.collect { |c| [c,c] }) %>
+      <%= select_tag "food_element[type]", options_for_select(food_element_type_list.collect { |c| [c,c] }) %>
     </span>
     <span class="small-1 column">
-      <label for="connection_type" class="inline right">Type:</label>
+      <%= f.label :connection_type, "Strength:" ,class: 'right inline' %>
     </span>
     <span class="small-2 column">
-      <%= select_tag "type", options_for_select(food_element_type_list.collect { |c| [c,c] }) %>
+      <%= f.select "connection_type" , options_for_select(connection_type_list.collect { |c| [c,c] }) %>
     </span>
     <span class="small-2 column">
-      <%= link_to "Add Connection", add_connection_food_elements_path, remote: :true %>
+      <%= f.submit 'Add Connection', class: 'button' %>
     </span>
 <% end %>

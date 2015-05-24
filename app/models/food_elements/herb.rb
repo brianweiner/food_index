@@ -1,0 +1,3 @@
+class Herb < FoodElement
+
+end

@@ -1,13 +1,13 @@
 class FoodElementsController < ApplicationController
   autocomplete :food_element, :name, :full => true
   before_action :assign_food_element, only: [:show, :edit, :update]
+  before_action :assign_connections, only: [:show, :edit]
 
   def index
     @food_elements = FoodElement.order(:name)
   end
   
   def show
-    @connections = @food_element.food_element_connections
   end
 
   def new
@@ -44,6 +44,11 @@ class FoodElementsController < ApplicationController
 
   def assign_food_element
     @food_element = FoodElement.find(params[:id])
+  end
+
+  def assign_connections
+    @connections = @food_element.food_element_connections.includes(:primary_food_element, :secondary_food_element)
+    @reverse_connections = @food_element.reverse_food_element_connections.includes(:primary_food_element, :secondary_food_element)
   end
 
   def food_element_params
