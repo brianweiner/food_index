@@ -1,0 +1,3 @@
+class Shellfish < FoodElement
+
+end

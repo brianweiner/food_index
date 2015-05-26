@@ -1,0 +1,3 @@
+class Dish < FoodElement
+
+end

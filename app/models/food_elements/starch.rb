@@ -1,0 +1,3 @@
+class Starch < FoodElement
+
+end
