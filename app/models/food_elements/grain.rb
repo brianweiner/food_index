@@ -1,0 +1,3 @@
+class Grain < FoodElement
+
+end

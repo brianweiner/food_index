@@ -1,0 +1,3 @@
+class Aromatic < FoodElement
+
+end

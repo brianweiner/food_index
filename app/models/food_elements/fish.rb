@@ -1,0 +1,3 @@
+class Fish < FoodElement
+
+end

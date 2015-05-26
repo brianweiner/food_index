@@ -1,0 +1,3 @@
+class Poultry < FoodElement
+
+end
