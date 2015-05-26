@@ -1,0 +1,3 @@
+class Dairy < FoodElement
+
+end

@@ -5,7 +5,7 @@ module ApplicationHelper
   end
   
   def food_element_type_list
-    ['Vegetable', 'Fruit', 'Poultry', 'Beef', 'Pork', 'Shellfish', 'Fish', 'Lamb', 'Spice', 'Herb',  'Grain', 'Starch', 'Legume', 'Nut', 'Aromatic', 'Mushroom', 'Technique', 'Dish', 'Cuisine']
+    ['Vegetable', 'Fruit', 'Poultry', 'Beef', 'Pork', 'Shellfish', 'Fish', 'Lamb', 'Spice', 'Herb',  'Grain', 'Starch', 'Legume', 'Nut', 'Aromatic', 'Mushroom', 'Dairy', 'Technique', 'Dish', 'Cuisine']
   end
 
 
