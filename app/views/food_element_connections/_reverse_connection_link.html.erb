@@ -1,1 +1,1 @@
-<%= link_to connection.primary_food_element.name, food_element_path(connection.primary_food_element), class: connection.connection_type.downcase %>
+<%= link_to connection.primary_food_element.name.capitalize, food_element_path(connection.primary_food_element), class: connection.connection_type.downcase %>

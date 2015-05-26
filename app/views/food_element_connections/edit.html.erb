@@ -6,7 +6,7 @@
       <span class="small-4 column"><%= f.label :connection_type, "connection to #{@connection.primary_food_element.name}", class: 'left inline' %></span> 
       <span class="small-3 column">
         <%= f.submit 'Update connection', class: 'button small' %>
-        <%= link_to "Delete this connection", food_element_connection_path(@connection),method: :delete, remote: true %>
+        <%= link_to "Delete this connection", food_element_connection_path(@connection), method: :delete, remote: true, data: { confirm: "Are you sure?" } %>
       </span>
     <% end %>
   </div>

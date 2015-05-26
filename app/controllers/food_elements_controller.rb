@@ -1,6 +1,6 @@
 class FoodElementsController < ApplicationController
   autocomplete :food_element, :name, :full => true
-  before_action :assign_food_element, only: [:show, :edit, :update]
+  before_action :assign_food_element, only: [:show, :edit, :update, :destroy]
   before_action :assign_connections, only: [:show, :edit]
 
   def index
@@ -8,6 +8,8 @@ class FoodElementsController < ApplicationController
   end
   
   def show
+    wiki = WikipediaLoader.new(element_name: @food_element.name)
+    @wiki_title = wiki.wiki_title
   end
 
   def new
@@ -23,24 +25,25 @@ class FoodElementsController < ApplicationController
 
   def create
     if @food_element = FoodElement.create!(food_element_params)
-      redirect_to edit_food_element_path(@food_element), :notice => 'Element was successfully created.'
+      redirect_to edit_food_element_path(@food_element), :flash => {:success => 'Element was successfully created.'}
     else
-      flash[:alert] = "There was a problem"
-      render :new
+      render :new, :alert => "There was a problem"
     end
   end
 
   def update
     if @food_element.update_attributes(food_element_params)
-      redirect_to food_element_path(@food_element), :notice => 'Element was successfully updated.'
+      redirect_to food_element_path(@food_element), :flash => {:success => 'Element was successfully updated.'}
     else
-      flash[:alert] = "There was a problem"
-      render :edit
+      render :edit, :alert => "There was a problem"
+
     end
   end
 
-  def delete
-    
+  def destroy
+    if @food_element.destroy!
+      redirect_to food_elements_path, :flash => {:success => "Element was deleted"}
+    end
   end
 
   def search

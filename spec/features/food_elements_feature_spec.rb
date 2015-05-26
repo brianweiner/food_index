@@ -27,6 +27,15 @@ RSpec.feature "FoodElement CRUD", :type => :feature do
       expect(page).to have_text(@ingredient.name)
     end
 
+    scenario "user uses the index search" do
+      visit "/food_elements"
+      fill_in "element_name", :with => "some"
+      click_button "Search"
+
+      expect(page).to have_text("Some Name")
+
+    end
+
     scenario "Editing an ingredient" do
       visit "/food_elements/#{@ingredient.id}/edit"
 
