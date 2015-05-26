@@ -13,8 +13,24 @@
   </head>
 
   <body>
+    <div class="row">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, class: "alert-box #{name} radius" %>
+        <% end %>
+      <div class="small-12 column">
+        <h1 class="app-header">The Food App</h1>
+      </div>
+      <div class="small-3 column">
+        <ul class="sidebar-nav">
+          <li><%=  link_to "Home", root_path %></li>
+          <li><%= link_to "View food list", food_elements_path %></li>
+          <li><%= link_to "Create new food element", new_food_element_path %></li>
+        </ul>
+      </div>
 
-    <%= yield %>
+      <div class="small-9 column">
+        <%= yield %>
+      </div>
 
   </body>
 </html>

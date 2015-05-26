@@ -1,3 +1,16 @@
+h1.app-header {
+  padding: 3% 0% 5% 0%;
+  text-align: center;
+}
+
+ul.sidebar-nav {
+    list-style-type: none;
+
+    li {
+      padding: 2%;
+    }
+}
+
 a.strong, a.ideal {
   font-weight: 700;
 }

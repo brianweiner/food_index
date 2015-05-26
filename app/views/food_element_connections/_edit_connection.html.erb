@@ -1,1 +1,1 @@
-<li><%= render 'food_element_connections/connection_link', connection: food_element_connection %></li>
+<li><%= render 'food_element_connections/connection_link', connection: food_element_connection %> <a href="<%= edit_food_element_connection_path(food_element_connection) %>" data-reveal-id="edit-connection-modal" data-reveal-ajax='true'><%= fa_icon "pencil-square-o" %></a></li>

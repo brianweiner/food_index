@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="small-12 column">
+    <%= form_for @connection, remote: true do |f| %>
+      <span class="small-3 column"><%= f.label :connection_type, " #{@connection.secondary_food_element.name} has a ", class: 'right inline' %></span>
+      <span class="small-2 column"><%= f.select "connection_type", options_for_select(connection_type_list.collect { |c| [c,c] }, f.object.connection_type.capitalize) %></span>
+      <span class="small-4 column"><%= f.label :connection_type, "connection to #{@connection.primary_food_element.name}", class: 'left inline' %></span> 
+      <span class="small-3 column">
+        <%= f.submit 'Update connection', class: 'button small' %>
+        <%= link_to "Delete this connection", food_element_connection_path(@connection),method: :delete, remote: true %>
+      </span>
+    <% end %>
+  </div>
+</div>
+<a class="close-reveal-modal">&#215;</a>

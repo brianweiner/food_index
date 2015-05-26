@@ -1,17 +1,18 @@
 <div class="row">
-  <%= render 'search_field' %>
-
+  <div class="small-12-column">
+    <h3>Search results for <%= @search_term %></h3>
+  </div>
   <div class="small-12-column">
     <ul class="small-block-grid-2">
       <%= render @food_elements %>
     </ul>
+    <div class="small-12 column">
+      <%= will_paginate @food_elements %>
+    </div>
+
     <% if @food_elements.count == 0 %>
       No ingredients yet
     <% end %>
   </div>
-  <div class="small-12 column">
-    <%= will_paginate @food_elements %>
-  </div>
-
 
 </div>

@@ -1,0 +1,8 @@
+<%= form_tag '/food_elements/search' do %>
+  <span class="small-9 column">
+    <%= autocomplete_field_tag 'element_name', '', autocomplete_food_element_name_food_elements_path , :size => 75, :placeholder => "Search for an ingredient" %>
+  </span>
+  <span class="small-3 column">
+    <%= submit_tag "Search", class: 'button small' %>
+  </span>
+<% end %>

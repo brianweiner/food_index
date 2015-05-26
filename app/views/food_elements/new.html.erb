@@ -1,13 +1,12 @@
 <div class="row">
   <span class="small-12 column">
-    <h1>Create new food element</h1>
+    <h3>Create new food element</h3>
   </span>
   <%= form_for @food_element.becomes(FoodElement) do |f| %>
-
-    <%= render 'food_element_form_fields', f: f %>
-
-    <div class="row">
-      <%= f.submit 'Create Food Element', class: "button" %>
-    </div>
+      <%= render 'food_element_form_fields', f: f %>
+      <div class="small-3 column">
+        <%= f.submit 'Create Food Element', class: 'button small' %>
+      </div>
   <% end %>
+
 </div>

@@ -1,28 +1,29 @@
 <div class="row">
-  <span class="small-12 column">
-    <h1>Edit <%= @food_element.name %></h1>
-  </span>
+  <div class="small-12 column">
+    <h3>Edit <%= link_to @food_element.name, food_element_path(@food_element) %></h3>
+  </div>
   <%= form_for @food_element.becomes(FoodElement) do |f| %>
     <%= render 'food_element_form_fields', f: f %>
-  
-    <div class="small-12 column">
-      <%= f.submit 'Update Food Element', class: 'button' %>
+    <div class="small-3 column">
+      <%= f.submit 'Update Food Element', class: 'button small' %>
     </div>
   <% end %>
   <span class="small-12 column">
-    <h1>Edit <%= @food_element.name %> Connections</h1>
+    <h3>Edit <%= @food_element.name %> Connections</h3>
   </span>
   <span class="small-12 column">
-    <ul id="connection-list">
+    <ul id="connection-list" class="small-block-grid-3">
       <%= render partial: "food_element_connections/edit_connection", collection: @connections, as: :food_element_connection  %>
     </ul>
   </span>
   <span class="small-12 column">
-    <h1>Add a new connection</h1> 
-    <span id="add-connection-form"> 
-      <%= render 'add_connection', primary_food_element: @food_element %>
-    </span>
+    <h3>Add a new connection</h3> 
+  </span>
+    
+  <span id="add-connection-form"> 
+    <%= render 'add_connection', primary_food_element: @food_element %>
   </span>
 
-
+  <div id="edit-connection-modal" class="reveal-modal" data-reveal>
+  </div>
 </div>

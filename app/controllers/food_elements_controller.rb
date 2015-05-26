@@ -4,7 +4,7 @@ class FoodElementsController < ApplicationController
   before_action :assign_connections, only: [:show, :edit]
 
   def index
-    @food_elements = FoodElement.order(:name)
+    @food_elements = FoodElement.paginate(:page => params[:page]).order(:name)
   end
   
   def show
@@ -39,6 +39,14 @@ class FoodElementsController < ApplicationController
     end
   end
 
+  def delete
+    
+  end
+
+  def search
+    @search_term = params[:element_name]
+    @food_elements = FoodElement.where("name ilike ?", "%#{@search_term}%").paginate(:page => params[:page])
+  end
 
   private
 
@@ -47,8 +55,8 @@ class FoodElementsController < ApplicationController
   end
 
   def assign_connections
-    @connections = @food_element.food_element_connections.includes(:primary_food_element, :secondary_food_element)
-    @reverse_connections = @food_element.reverse_food_element_connections.includes(:primary_food_element, :secondary_food_element)
+    @connections = @food_element.food_element_connections.includes(:secondary_food_element).order('food_elements.name ASC') #order needed to use the actual table name
+    @reverse_connections = @food_element.reverse_food_element_connections.includes(:primary_food_element).order('food_elements.name DESC')
   end
 
   def food_element_params

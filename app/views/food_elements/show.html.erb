@@ -1,16 +1,16 @@
 <div class="row">
-<span class="small-11 column"><h1><%= @food_element.name %></h1></span>
-<span class="small-1 column"><%= link_to "Edit", edit_food_element_path(@food_element) %></span>
+<div class="small-11 column"><h3><%= @food_element.name %></h3></div>
+<div class="small-1 column"><%= link_to "Edit", edit_food_element_path(@food_element) %></div>
 
-<span class="small-12 column"><h3>Connections</h3></span>
+<div class="small-12 column"><h4>Connections</h></div>
 <div class="small-12 column">
-<ul>
+<ul class="small-block-grid-3">
   <%= render partial: "food_element_connections/connection", collection: @connections, as: :food_element_connection %>
 </ul>
 </div>
-<span class="small-12 column">
-  <h3>Other foods that reference <%= @food_element.name %></h3>
-</span>
+<div class="small-12 column">
+  <h4>Other foods that reference <%= @food_element.name %></h4>
+</div>
 <div class="small-12 column">
   <ul>
   <%= render partial: "food_element_connections/reverse_connection", collection: @reverse_connections, as: :food_element_connection %>

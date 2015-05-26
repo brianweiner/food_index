@@ -1,16 +1,16 @@
 <%= form_for FoodElementConnection.new,  :remote => true do |f| %>
     <%= hidden_field_tag 'food_element_connection[primary_food_element_id]', primary_food_element.id %>
     <span class="small-1 column">
-      <label for="food_element[name]" class="inline right">Name:</label>
+      <label for="food_element[new_element_name]" class="inline right">Name:</label>
     </span>
     <span class="small-3 column">
-      <%= autocomplete_field_tag 'food_element[name]', '', autocomplete_food_element_name_food_elements_path , :size => 75 %>
+      <%= autocomplete_field_tag 'food_element[new_element_name]', '', autocomplete_food_element_name_food_elements_path , :size => 75 %>
     </span>
     <span class="small-1 column">
-      <label for="food_element[type]" class="inline right">Type:</label>
+      <label for="food_element[new_type]" class="inline right">Type:</label>
     </span>
     <span class="small-2 column">
-      <%= select_tag "food_element[type]", options_for_select(food_element_type_list.collect { |c| [c,c] }) %>
+      <%= select_tag "food_element[new_type]", options_for_select(food_element_type_list.collect { |c| [c,c] }) %>
     </span>
     <span class="small-1 column">
       <%= f.label :connection_type, "Strength:" ,class: 'right inline' %>
@@ -19,6 +19,6 @@
       <%= f.select "connection_type" , options_for_select(connection_type_list.collect { |c| [c,c] }) %>
     </span>
     <span class="small-2 column">
-      <%= f.submit 'Add Connection', class: 'button' %>
+      <%= f.submit 'Add Connection', class: 'button small' %>
     </span>
 <% end %>
