@@ -1,0 +1,3 @@
+class Lamb < FoodElement
+
+end
