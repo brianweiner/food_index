@@ -1,10 +1,11 @@
 <%= form_for FoodElementConnection.new,  :remote => true do |f| %>
     <%= hidden_field_tag 'food_element_connection[primary_food_element_id]', primary_food_element.id %>
+    <%= hidden_field_tag 'food_element_connection[secondary_food_element_id]' %>
     <span class="small-1 column">
       <label for="food_element[new_element_name]" class="inline right">Name:</label>
     </span>
     <span class="small-3 column">
-      <%= autocomplete_field_tag 'food_element[new_element_name]', '', autocomplete_food_element_name_food_elements_path , :size => 75 %>
+      <%= autocomplete_field_tag 'food_element[new_element_name]', '', autocomplete_food_element_name_food_elements_path , :update_elements => { :id => "#food_element_connection_secondary_food_element_id", :type => "#food_element_new_type"} , :size => 75 %>
     </span>
     <span class="small-1 column">
       <label for="food_element[new_type]" class="inline right">Type:</label>

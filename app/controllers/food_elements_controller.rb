@@ -1,5 +1,5 @@
 class FoodElementsController < ApplicationController
-  autocomplete :food_element, :name, :full => true
+  autocomplete :food_element, :name, :full => true, :extra_data => [:type]
   before_action :assign_food_element, only: [:show, :edit, :update, :destroy]
   before_action :assign_connections, only: [:show, :edit]
 

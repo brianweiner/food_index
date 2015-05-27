@@ -1,6 +1,7 @@
 class FoodElementConnectionsController < ApplicationController
   before_action :find_or_create_secondary_element, only: [:create]
   before_action :load_connection, only: [:edit,:update, :destroy]
+  
   def create
     @connection = FoodElementConnection.create!(food_element_connection_params) 
     respond_to do |format|

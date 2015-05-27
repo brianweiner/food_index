@@ -3,7 +3,7 @@
 <div class="small-1 column"><%= link_to "Edit", edit_food_element_path(@food_element) %></div>
 
 <div class="small-12 column">
-  <a href="http://en.wikipedia.org/wiki/<%=@wiki_title%>" target="_blank">More info via Wikipedia</a>
+  <%= indefinite_article @food_element.type %> - <a href="http://en.wikipedia.org/wiki/<%=@wiki_title%>" target="_blank">More info via Wikipedia</a>
 </div>
 <div class="small-12 column"><h4>Connections</h></div>
 <div class="small-12 column">
