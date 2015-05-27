@@ -20,4 +20,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/app/:path.html' => 'templates#page', :constraints => { :path => /.+/  }
+  get '/app/:path.css' => 'templates#css', :constraints => { :path => /.+/  }
+  get '/app/:path.js' => 'templates#js', :constraints => { :path => /.+/  }
+
 end
