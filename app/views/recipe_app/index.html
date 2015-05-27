@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="styles/33462918.main.css"/>
+        <link rel="stylesheet" href="styles/5f190c47.main.css"/>
 </head>
   <body ng-app="timelineApp">
     <!--[if lt IE 7]>
@@ -25,14 +25,14 @@
 
     <!-- Add your site or application content here -->
     <header ng-controller="NavCtrl">
-      <ul class="nav nav-pills pull-right">
+      <ul class="nav nav-pills pull-right" ng-cloak="">
         <li class="active"><a href="#">Home</a></li>
         <li access-level="accessLevels.user"><a ui-sref="projects">Projects</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
         <li access-level="accessLevels.anon"><a ui-sref="login">Login</a></li>
         <li access-level="accessLevels.anon"><a ui-sref="register">Register</a></li>
-        <li access-level="accessLevels.user"><a href="#" ng-click="logout()">Logout</a></li>
+        <li access-level="accessLevels.user"><a href="" ng-click="logout()">Logout</a></li>
       </ul>
       <h3 class="text-muted">timeline_client</h3>
     </header>
@@ -57,6 +57,6 @@
 
         <script src="scripts/2819d04c.modules.js"></script>
 
-        <script src="scripts/22be0aa9.scripts.js"></script>
+        <script src="scripts/87f28c38.scripts.js"></script>
 </body>
 </html>
