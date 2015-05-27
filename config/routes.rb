@@ -13,4 +13,11 @@ Rails.application.routes.draw do
     k = klass.name.pluralize.underscore.to_sym
     resources k, :controller => 'food_elements'
   end
+
+  scope :api do
+    scope :v1 do
+      devise_for :users, :controllers => {:registrations => "api/v1/registrations", :sessions => "api/v1/sessions"}
+    end
+  end
+
 end

@@ -24,7 +24,7 @@ RSpec.feature "FoodElement CRUD", :type => :feature do
 
     scenario "user visits the index with ingredients" do
       visit "/food_elements"
-      expect(page).to have_text(@ingredient.name)
+      expect(page).to have_text(@ingredient.name.capitalize)
     end
 
     scenario "user uses the index search" do
@@ -32,7 +32,7 @@ RSpec.feature "FoodElement CRUD", :type => :feature do
       fill_in "element_name", :with => "some"
       click_button "Search"
 
-      expect(page).to have_text("Some Name")
+      expect(page).to have_text("Some name")
 
     end
 

@@ -22,13 +22,15 @@ gem 'jquery-ui-rails'
 gem 'rails4-autocomplete'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+
+gem 'active_model_serializers'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'will_paginate', '~> 3.0.6'
 
+gem 'devise'
+gem 'attr_encrypted', :github => 'rcook/attr_encrypted'
 gem 'wikipedia-client'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -57,5 +59,6 @@ group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'shoulda-matchers'
+  gem 'faker'
 end
 
