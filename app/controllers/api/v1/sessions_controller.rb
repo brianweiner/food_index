@@ -8,11 +8,11 @@ module Api
       respond_to :json
 
       def create  
-        self.resource = warden.authenticate!(:scope => resource_name)
+        resource = warden.authenticate!(:scope => resource_name)
 
         sign_in(resource_name, resource)
-        
-        render :json => resource, :status => 200
+        @user = resource
+        render @user, :status => 200
       end
 
       def destroy

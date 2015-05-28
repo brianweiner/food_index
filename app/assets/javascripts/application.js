@@ -12,10 +12,9 @@
 //
 //= require jquery
 //= require foundation
-
-//= require jquery-ui
 //= require jquery_ujs
-//= require autocomplete-rails
+//= require jquery-ui
+//= require autocomplete-rails-uncompressed
 //= require turbolinks
 //= require_tree .
 
