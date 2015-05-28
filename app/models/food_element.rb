@@ -6,6 +6,7 @@ class FoodElement < ActiveRecord::Base
   has_many(:reverse_food_element_connections, :class_name => :FoodElementConnection, 
     :foreign_key => :secondary_food_element_id, :dependent => :destroy)
   has_many :connections, :through => :food_element_connections, :source => :secondary_food_element
+  has_many :recipe_ingredients
 
   before_save :downcase_name
 
