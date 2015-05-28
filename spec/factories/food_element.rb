@@ -1,7 +1,7 @@
 FactoryGirl.define do
 
   factory :food_element do
-    name "name"
+    name Faker::Name.name
   end
 
 end
