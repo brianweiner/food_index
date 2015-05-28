@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe Api::V1::SessionsController do
+  render_views
 
   before (:each) do
     @user = create(:user, :password => "password")
