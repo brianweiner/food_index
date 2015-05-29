@@ -16,14 +16,20 @@ RSpec.describe FoodElement, type: :model do
     context "non ingredients" do
       before do
         @cuisine_element = create(:cuisine_element, type: "Cuisine")      
-        @ingredient_element = create(:ingredient_element, type: "Beef")
       end
       it "#ingredient?" do
         expect(@cuisine_element.ingredient?).to be(false)
-        expect(@ingredient_element.ingredient?).to be(true)
       end
     end
 
+    context 'ingredients' do
+      before do
+        @ingredient_element = create(:ingredient_element, type: "Beef")
+      end
+      it "#ingredients?" do
+        expect(@ingredient_element.ingredient?).to be(true)
+      end
+    end
   end
 
 end

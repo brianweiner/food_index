@@ -31,12 +31,18 @@ describe Api::V1::RecipesController do
 
   describe 'POST#create' do
     it 'creates a recipe' do
-      params = {format: :json, recipe: { name: "New Recipe", description: "A delicious recipe" }}
+      recipe = FactoryGirl.attributes_for(:recipe).merge(user_id: @user.id)
+      params = {format: :json, recipe: recipe }
       post :create, params
       parsed_response = JSON.parse(response.body)
-
-      expect(parsed_response['recipe']).to_not be_empty
+      expect(parsed_response['recipe']).to_not include 'errors'
     end
+  end
+
+  describe 'POST#add_recipe_ingredient' do
+  end
+
+  describe 'POST#add_recipe_step' do
   end
 
 end

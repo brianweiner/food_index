@@ -14,15 +14,15 @@ module Api
 
       def create
         @recipe = Recipe.create(recipe_params)
-        unless @recipe
-          render json: { errors: recipe.errors }, status: 422
+        unless @recipe.errors.blank?
+          render json: { recipe: {errors: @recipe.errors }}, status: 422
         end
       end
 
       private
 
       def recipe_params
-        params.require(:recipe).permit(:name,:description)
+        params.require(:recipe).permit(:name,:description,:user_id)
       end
     end
   end

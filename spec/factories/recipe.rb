@@ -1,6 +1,8 @@
 FactoryGirl.define do
   factory :recipe do
-    name Faker::Name.name
-    description Faker::Lorem.words(3)
+    name { Faker::Name.name }
+    description "a description"
+    association :user
   end
+
 end
