@@ -11,7 +11,6 @@ module Api
           render :json=> user, :status=>201
           return
         else
-          #TO DO RESPOND WITH A GOOD ERROR
           warden.custom_failure!
           render :json=> user.errors, :status=>422
         end
