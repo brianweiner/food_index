@@ -11,4 +11,19 @@ RSpec.describe FoodElement, type: :model do
       expect(@food_element.name).to eq('potato')
     end
   end
+
+  context "sti concerns" do
+    context "non ingredients" do
+      before do
+        @cuisine_element = create(:cuisine_element, type: "Cuisine")      
+        @ingredient_element = create(:ingredient_element, type: "Beef")
+      end
+      it "#ingredient?" do
+        expect(@cuisine_element.ingredient?).to be(false)
+        expect(@ingredient_element.ingredient?).to be(true)
+      end
+    end
+
+  end
+
 end

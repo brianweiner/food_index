@@ -18,6 +18,15 @@ class FoodElement < ActiveRecord::Base
     FoodElementConnection.where(primary_food_element_id: primary_food_element, secondary_food_element_id: self.id).first
   end
 
+
+  def ingredient?
+    raise NotImplementedError
+  end
+
+  def primary_ingredient?
+    raise NotImplementedError
+  end
+
   private
 
   def downcase_name
