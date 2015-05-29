@@ -1,0 +1,1 @@
+json.food_element food_element, :id, :name

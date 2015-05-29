@@ -22,7 +22,12 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :recipes
+      resources :recipes do
+        member do
+          post 'add_recipe_ingredient'
+          post 'add_recipe_step'
+        end
+      end
     end
   end
 

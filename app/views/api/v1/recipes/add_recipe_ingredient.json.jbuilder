@@ -1,0 +1,1 @@
+json.partial! 'api/v1/recipe_ingredients/recipe_ingredient', recipe_ingredient: @recipe_ingredient
