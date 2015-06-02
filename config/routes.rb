@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   scope :api do
     scope :v1 do
       devise_for :users, :controllers => {:registrations => "api/v1/registrations", :sessions => "api/v1/sessions"}
+      get 'food_element_autocomplete' => "food_elements#autocomplete_food_element_name"
     end
   end
 

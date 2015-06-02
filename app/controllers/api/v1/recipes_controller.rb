@@ -7,6 +7,9 @@ module Api
 
       def index
         @recipes = Recipe.all
+        if @recipes.count == 0
+          render json: { recipes: [] }, status: 200
+        end
       end
 
       def show
@@ -36,7 +39,10 @@ module Api
       private
 
       def load_recipe
-        @recipe = Recipe.find(params[:id])
+        @recipe = Recipe.includes(recipe_ingredients: [:food_element]).find(params[:id])
+        @recipe.recipe_ingredients.each do |ingredient|
+          puts ingredient.food_element
+        end
       end
 
       def recipe_params

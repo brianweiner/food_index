@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="styles/5f190c47.main.css"/>
+        <link rel="stylesheet" href="styles/d06f7e99.main.css"/>
 </head>
   <body ng-app="timelineApp">
     <!--[if lt IE 7]>
@@ -23,18 +23,14 @@
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
     <header ng-controller="NavCtrl">
-      <ul class="nav nav-pills pull-right" ng-cloak="">
-        <li class="active"><a href="#">Home</a></li>
-        <li access-level="accessLevels.user"><a ui-sref="projects">Projects</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+      <ul class="nav nav-pills pull-right ng-cloak">
+        <li><a ui-sref="main">Home</a></li>
+        <li access-level="accessLevels.user"><a ui-sref="recipes">Recipes</a></li>
         <li access-level="accessLevels.anon"><a ui-sref="login">Login</a></li>
         <li access-level="accessLevels.anon"><a ui-sref="register">Register</a></li>
         <li access-level="accessLevels.user"><a href="" ng-click="logout()">Logout</a></li>
       </ul>
-      <h3 class="text-muted">timeline_client</h3>
     </header>
 
     <div class="container" ui-view=""></div>
@@ -53,10 +49,10 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
 
-        <script src="scripts/67ddff06.plugins.js"></script>
+        <script src="scripts/d0eba4de.plugins.js"></script>
 
-        <script src="scripts/2819d04c.modules.js"></script>
+        <script src="scripts/228af189.modules.js"></script>
 
-        <script src="scripts/87f28c38.scripts.js"></script>
+        <script src="scripts/34ac4d79.scripts.js"></script>
 </body>
 </html>
