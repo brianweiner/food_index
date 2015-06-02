@@ -3,6 +3,7 @@ module Api
     class RecipesController < ApplicationController
       include ApiAuthentication
       respond_to :json
+      autocomplete :food_element, :name, :full => true, :extra_data => [:type], :scopes => [:ingredients] 
       before_action :load_recipe, only: [:show, :update, :add_recipe_ingredient, :add_recipe_step]
 
       def index

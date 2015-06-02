@@ -32,4 +32,21 @@ RSpec.describe FoodElement, type: :model do
     end
   end
 
+  context "scopes" do
+    before do
+      @cuisine_element = create(:cuisine_element, type: "Cuisine")      
+      @ingredient_element = create(:ingredient_element, type: "Beef")
+    end
+
+    describe "scope - ingredients" do
+
+      it "should only return food elements with type in constant INGREDIENT_LIST" do
+        results = FoodElement.ingredients
+
+        expect(results).to include(@ingredient_element)
+        expect(results).to_not include(@cuisine_element)
+      end
+    end
+  end
+
 end

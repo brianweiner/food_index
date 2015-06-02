@@ -8,6 +8,10 @@ class FoodElement < ActiveRecord::Base
   has_many :connections, :through => :food_element_connections, :source => :secondary_food_element
   has_many :recipe_ingredients
 
+  scope :ingredients, -> { 
+    where( "type ~ '^(" + INGREDIENT_LIST.join("|") + ".*)'")
+  }
+
   before_save :downcase_name
 
   def to_partial_path
