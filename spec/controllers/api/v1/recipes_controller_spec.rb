@@ -39,6 +39,16 @@ describe Api::V1::RecipesController do
     end
   end
 
+  describe 'PATCH#update' do
+    it 'updates the record' do
+      recipe = {name: "new name"}
+      params = {format: :json, recipe: recipe, id: @recipe_one.id}
+      patch :update, params
+      parsed_response = JSON.parse(response.body)
+      expect(parsed_response['recipe']).to_not include 'errors'
+    end
+  end
+
   describe 'POST#add_recipe_ingredient' do
     it "adds the recipe_ingredient successfully" do
       @food_element = create(:food_element)
@@ -46,7 +56,7 @@ describe Api::V1::RecipesController do
       params = {format: :json, id: @recipe_one.id, recipe_ingredient: ingredient }
       post :add_recipe_ingredient, params
       parsed_response = JSON.parse(response.body)
-      expect(parsed_response['recipe_ingredient']).to_not include 'errors'
+      expect(parsed_response).to_not include 'errors'
     end
   end
 

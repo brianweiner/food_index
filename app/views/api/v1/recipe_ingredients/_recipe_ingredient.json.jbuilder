@@ -1,5 +1,6 @@
-json.recipe_ingredient recipe_ingredient, :id, :amount, :unit
-
-json.recipe_ingredient do  
-  json.partial! 'api/v1/food_elements/food_element', food_element: recipe_ingredient.food_element
-end 
+json.id recipe_ingredient.id
+json.amount recipe_ingredient.amount
+json.unit recipe_ingredient.unit
+json.name recipe_ingredient.food_element.name
+json.type recipe_ingredient.food_element.type
+json.food_element_id recipe_ingredient.food_element.id

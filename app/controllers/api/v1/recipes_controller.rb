@@ -3,7 +3,7 @@ module Api
     class RecipesController < ApplicationController
       include ApiAuthentication
       respond_to :json
-      before_action :load_recipe, only: [:show, :add_recipe_ingredient, :add_recipe_step]
+      before_action :load_recipe, only: [:show, :update, :add_recipe_ingredient, :add_recipe_step]
 
       def index
         @recipes = Recipe.all
@@ -19,6 +19,12 @@ module Api
         @recipe = Recipe.create(recipe_params)
         unless @recipe.errors.blank?
           render json: { recipe: {errors: @recipe.errors }}, status: 422
+        end
+      end
+
+      def update
+        unless @recipe.update_attributes(recipe_params)
+          render json: { recipe: { errors: @recipe.errors }}, status: 422
         end
       end
 
