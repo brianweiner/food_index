@@ -1,6 +1,6 @@
 class FoodElementsController < ApplicationController
   autocomplete :food_element, :name, :full => true, :extra_data => [:type] 
-  before_action :assign_food_element, only: [:show, :edit, :update, :destroy]
+  before_action :assign_food_element, only: [:show, :edit, :update, :destroy, :add_connection]
   before_action :assign_connections, only: [:show, :edit]
 
   def index
@@ -20,7 +20,6 @@ class FoodElementsController < ApplicationController
   end
 
   def add_connection
-    @food_element = FoodElement.find(params[:id])
   end
 
   def create

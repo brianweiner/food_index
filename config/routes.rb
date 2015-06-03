@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       get 'food_element_autocomplete' => "food_elements#autocomplete_food_element_name"
       scope :food_elements do
         get 'main_ingredients' => 'food_elements#main_ingredients'
+        get 'ingredient_connections' => 'food_elements#ingredient_connections'
       end
       resources :recipes do
         member do
