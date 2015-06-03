@@ -1,7 +1,7 @@
 module NonIngredientBehaviors
   extend ActiveSupport::Concern
 
-    def ingredient?
-      false
-    end
+  def ingredient?
+    false
+  end
 end

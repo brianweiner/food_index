@@ -12,6 +12,10 @@ class FoodElement < ActiveRecord::Base
     where( "type ~ '^(" + INGREDIENT_LIST.join("|") + ".*)'")
   }
 
+  scope :main_ingredients, -> {
+    where( "type ~ '^(" + MAIN_INGREDIENT_LIST.join("|") + ".*)'")
+  }
+
   before_save :downcase_name
 
   def to_partial_path

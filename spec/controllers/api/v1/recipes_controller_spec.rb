@@ -66,8 +66,15 @@ describe Api::V1::RecipesController do
       params = {format: :json, id: @recipe_one.id, recipe_step: step }
       post :add_recipe_step, params
       parsed_response = JSON.parse(response.body)
-      expect(parsed_response['recipe_step']).to_not include 'errors'
+      expect(parsed_response).to_not include 'errors'
     end
   end
 
+  describe 'DELETE#recipe' do
+    it "deletes the recipe" do
+      params = {format: :json, id: @recipe_one.id}
+      delete :destroy, params
+      expect(response.status).to eq(200)
+    end
+  end
 end

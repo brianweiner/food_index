@@ -3,6 +3,6 @@ class RecipeIngredient < ActiveRecord::Base
   belongs_to :food_element
   belongs_to :recipe
 
-  validates_presence_of :amount, :unit
+  validates_presence_of :amount, :unit, :food_element_id
 
 end

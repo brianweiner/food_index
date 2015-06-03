@@ -3,8 +3,7 @@ module Api
     class RecipesController < ApplicationController
       include ApiAuthentication
       respond_to :json
-      autocomplete :food_element, :name, :full => true, :extra_data => [:type], :scopes => [:ingredients] 
-      before_action :load_recipe, only: [:show, :update, :add_recipe_ingredient, :add_recipe_step]
+      before_action :load_recipe, only: [:show, :update, :add_recipe_ingredient, :add_recipe_step, :destroy]
 
       def index
         @recipes = Recipe.all
@@ -43,13 +42,15 @@ module Api
         end
       end
 
+      def destroy
+        @recipe.destroy
+        render json: { message: 'Deleted' }, status: 200
+      end
+
       private
 
       def load_recipe
         @recipe = Recipe.includes(:recipe_steps,recipe_ingredients: [:food_element]).find(params[:id])
-        @recipe.recipe_ingredients.each do |ingredient|
-          puts ingredient.food_element
-        end
       end
 
       def recipe_params

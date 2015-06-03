@@ -22,8 +22,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      get 'food_element_autocomplete' => "recipes#autocomplete_food_element_name"
-
+      get 'food_element_autocomplete' => "food_elements#autocomplete_food_element_name"
+      scope :food_elements do
+        get 'main_ingredients' => 'food_elements#main_ingredients'
+      end
       resources :recipes do
         member do
           post 'add_recipe_ingredient'
