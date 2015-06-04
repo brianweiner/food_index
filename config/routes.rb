@@ -35,7 +35,7 @@ Rails.application.routes.draw do
       end
     end
   end
-
+  get 'app/recipes/:path.html' => 'templates#recipe_page', :constraints => { :path => /.+/ }
   get '/app/:path.html' => 'templates#page', :constraints => { :path => /.+/  }
   get '/app/:path.css' => 'templates#css', :constraints => { :path => /.+/  }
   get '/app/:path.js' => 'templates#js', :constraints => { :path => /.+/  }

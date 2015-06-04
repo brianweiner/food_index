@@ -1,7 +1,8 @@
 class FoodElement < ActiveRecord::Base
   validates :name, :presence => true
   validates_uniqueness_of :name
-
+  before_save :downcase_name
+  
   has_many(:food_element_connections, :foreign_key => :primary_food_element_id, :dependent => :destroy)
   has_many(:reverse_food_element_connections, :class_name => :FoodElementConnection, 
     :foreign_key => :secondary_food_element_id, :dependent => :destroy)
@@ -16,16 +17,10 @@ class FoodElement < ActiveRecord::Base
     where( "type ~ '^(" + MAIN_INGREDIENT_LIST.join("|") + ".*)'")
   }
 
-  before_save :downcase_name
 
   def to_partial_path
     '/food_elements/food_element'
   end
-
-  def connection_strength_to primary_food_element
-    FoodElementConnection.where(primary_food_element_id: primary_food_element, secondary_food_element_id: self.id).first
-  end
-
 
   def ingredient?
     raise NotImplementedError
