@@ -10,7 +10,7 @@ module Api
       end
 
       def ingredient_connections
-        @food_element = FoodElement.find(params[:primary_food_element_id])
+        @food_element = FoodElement.find(params[:primaryFoodElementId])
         @connections = @food_element.food_element_connections.includes(:secondary_food_element)
       end
     end

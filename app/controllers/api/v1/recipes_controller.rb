@@ -58,11 +58,11 @@ module Api
       end
 
       def recipe_ingredient_params
-        params.require(:recipe_ingredient).permit(:amount, :unit, :food_element_id)
+        params.require(:recipeIngredient).permit(:amount, :unit, :food_element_id)
       end
 
       def recipe_step_params
-        params.require(:recipe_step).permit(:description)
+        params.require(:recipeStep).permit(:description)
       end
     end
   end

@@ -1,1 +1,1 @@
-json.food_elements @main_ingredients, :id, :name
+json.foodElements @main_ingredients, :id, :name

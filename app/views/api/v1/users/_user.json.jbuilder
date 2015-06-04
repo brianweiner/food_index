@@ -1,1 +1,5 @@
-json.user @user, :id, :email, :authentication_token
+json.user do
+  json.id @user.id
+  json.email @user.email
+  json.authenticationToken @user.authentication_token
+end
