@@ -6,13 +6,13 @@ module Api
       respond_to :json
      
       def create
-        user = User.new(sign_up_params)
-        if user.save
-          render :json=> user, :status=>201
+        @user = User.new(sign_up_params)
+        if @user.save
+          render @user, :status=>201
           return
         else
           warden.custom_failure!
-          render :json=> user.errors, :status=>422
+          render :json=> @user.errors, :status=>422
         end
       end
     end

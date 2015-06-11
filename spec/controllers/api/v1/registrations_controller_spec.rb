@@ -11,7 +11,9 @@ describe Api::V1::RegistrationsController do
     it "should sign up with email and password" do
       params = {:format => :json, :user => {:email => "user@example.com", :password => "password"}}
       post :create,  params
+      parsed_response = JSON.parse(response.body)
       expect(response.status).to eq(201)
+      expect(parsed_response['user']['authenticationToken']).to_not be(nil)
     end
     it "should reject a sign up with no password" do
       params = {:format => :json, :user => {:email => "user@example.com", :password => ""} }

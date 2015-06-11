@@ -52,8 +52,8 @@ describe Api::V1::RecipesController do
   describe 'POST#add_recipe_ingredient' do
     it "adds the recipe_ingredient successfully" do
       @food_element = create(:food_element)
-      ingredient = FactoryGirl.attributes_for(:recipe_ingredient).merge(food_element_id: @food_element.id)
-      params = {format: :json, id: @recipe_one.id, recipe_ingredient: ingredient }
+      ingredient = FactoryGirl.attributes_for(:recipe_ingredient).merge(foodElementId: @food_element.id)
+      params = {format: :json, id: @recipe_one.id, recipeIngredient: ingredient }
       post :add_recipe_ingredient, params
       parsed_response = JSON.parse(response.body)
       expect(parsed_response).to_not include 'errors'
@@ -63,7 +63,7 @@ describe Api::V1::RecipesController do
   describe 'POST#add_recipe_step' do
     it "adds the recipe_step successfully" do
       step = FactoryGirl.attributes_for(:recipe_step)
-      params = {format: :json, id: @recipe_one.id, recipe_step: step }
+      params = {format: :json, id: @recipe_one.id, recipeStep: step }
       post :add_recipe_step, params
       parsed_response = JSON.parse(response.body)
       expect(parsed_response).to_not include 'errors'

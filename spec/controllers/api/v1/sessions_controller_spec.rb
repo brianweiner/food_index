@@ -15,7 +15,7 @@ describe Api::V1::SessionsController do
       post :create,  params
       parsed_response = JSON.parse(response.body)
 
-      expect(parsed_response['user']['authentication_token']).to eq(@user.authentication_token)
+      expect(parsed_response['user']['authenticationToken']).to eq(@user.authentication_token)
       expect(response.status).to eq(200)
     end
 

@@ -16,18 +16,18 @@ describe Api::V1::FoodElementsController do
   
   describe 'GET#main_ingredients' do
     it "returns ingredients with types in the MAIN_INGREDIENT_LIST" do
-      get :main_ingredients, format: :json
+      get :main_ingredients, {id: @main_ingredient.id, format: :json}
       parsed_response = JSON.parse(response.body)
-      expect(parsed_response['food_elements'].count).to be(2)
+      expect(parsed_response['foodElements'].count).to be(2)
     end
   end
 
   describe 'GET#ingredient_connections' do
     it "returns connections for that food_element" do
-      params = { format: :json, primary_food_element_id: @main_ingredient.id}
+      params = { format: :json, primaryFoodElementId: @main_ingredient.id}
       get :ingredient_connections, params
       parsed_response = JSON.parse(response.body)
-      expect(parsed_response['food_element_connections'].count).to be(1)
+      expect(parsed_response.count).to be(1)
     end
   end
 end
