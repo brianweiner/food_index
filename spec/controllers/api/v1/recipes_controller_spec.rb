@@ -9,7 +9,7 @@ describe Api::V1::RecipesController do
     @recipe_one = create(:recipe)
     @recipe_two = create(:recipe)
     @token = @user.authentication_token
-    request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Token.encode_credentials(@token)
+    request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Token.encode_credentials(@token, email: @user.email)
   end
 
   describe 'GET#index' do

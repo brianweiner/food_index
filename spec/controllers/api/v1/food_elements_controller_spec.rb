@@ -11,7 +11,7 @@ describe Api::V1::FoodElementsController do
     @cuisine_element = create(:cuisine_element, type: 'Cuisine')
     @connection = FoodElementConnection.create(primary_food_element_id: @main_ingredient.id, secondary_food_element_id: @cuisine_element.id, connection_type: 'strong')
     @token = @user.authentication_token
-    request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Token.encode_credentials(@token)
+    request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Token.encode_credentials(@token, email: @user.email)
   end
   
   describe 'GET#main_ingredients' do

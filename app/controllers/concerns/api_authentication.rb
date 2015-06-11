@@ -7,13 +7,10 @@ module ApiAuthentication
 
   private
 
-    def verify_authenticity_token
-      true
-    end
     def restrict_access_by_token
       authenticate_or_request_with_http_token do |token, options|
-        @current_user = User.find_by_authentication_token(token)
-        @current_user ||= false
+        @current_user = User.find_by_email(options['email'])
+        @current_user = @current_user.authentication_token == token ? @current_user : false
       end
     end
     def configure_permitted_parameters

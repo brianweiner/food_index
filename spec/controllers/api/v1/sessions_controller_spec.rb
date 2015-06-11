@@ -38,7 +38,7 @@ describe Api::V1::SessionsController do
     end
 
     it "signs out with json" do
-      request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Token.encode_credentials(@token)
+      request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Token.encode_credentials(@token, email: @user.email)
       params = {:format => :json, :user => {:email => @user.email}}
       delete :destroy, params
 
