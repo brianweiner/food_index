@@ -1,28 +1,9 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a pretty straightforward example of a Rails app with a bit of an API component. Inspired by the book http://www.amazon.com/Flavor-Bible-Essential-Creativity-Imaginative/dp/0316118400/ . You can define food relationships and then build recipes utilizing that information. E.g Tomatos have a strong connection to Basil, Garlic has a strong connection to olive oil or onions and so on. 
 
-Things you may want to cover:
+The Rails app handles creation of FoodElements and defining their relationships: There's some simple server-side javascript to enable ajax behaviors. 
 
-* Ruby version
+There is a related food_index_client ( https://github.com/brianweiner/food_index_client ) built as an angularjs single-page-application. It can create recipes and query for food connections based on an ingredient. 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+App presumes postgres: live demo on heroku at https://pure-shore-4802.herokuapp.com/
